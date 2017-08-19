@@ -12,10 +12,10 @@ vcap = cv2.VideoCapture(0)
 
 def readframe(vcap):
     ret, frame = vcap.read()
-    if ret is True:
+    if not ret:
         return ret, None, None
     ts = vcap.get(cv2.CAP_PROP_POS_MSEC)
-    frame = cv2.resize(frame, (0, 0), fx=0.50, fy=0.50)
+    frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     return ret, ts, frame
 
